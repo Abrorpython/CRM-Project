@@ -41,6 +41,10 @@ INSTALLED_APPS = [
     'crmApp.apps.CrmappConfig',
 ]
 
+SWAGGER_SETTINGS = {
+    'VALIDATOR_URL': 'http://127.0.01:8000',
+}
+
 CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_ORIGINS = True
 

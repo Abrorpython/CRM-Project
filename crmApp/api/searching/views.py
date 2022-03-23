@@ -27,11 +27,14 @@ class SearchProduct(generics.ListAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductSerializers
     filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
-    search_fields = ['^name']
+    search_fields = ['^name', '^descriptions']
 
 
 # Categoriya bo'yicha qidiruv
 class SearchProductCategory(ModelViewSet):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializers
+
     def list(self, request, *args, **kwargs):
         queryset = Product.objects.filter(category_id=kwargs['pk'])
         serializers = ProductSerializers(queryset, many=True)

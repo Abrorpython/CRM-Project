@@ -195,7 +195,6 @@ class ScannerQrKod(ModelViewSet):
 class ProductView(ModelViewSet):
     queryset = Product.objects.all()
     serializer_class = ProductSerializers
-    permission_classes = [AllowAny]
 
     def list(self, request, *args, **kwargs):
         products = Product.objects.all()
